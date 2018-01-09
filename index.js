@@ -2,14 +2,14 @@ const http = require('http');
 
 const PORT_NUMBER = 3000;
 
-const createResponseBody = (email, firstName, lastName, github, website) => {
+const createResponseBody = (email, firstName, lastName, github_repo_link, website) => {
   const body = {
     email,
     name: {
       first: firstName,
       last: lastName
     },
-    github,
+    github_repo_link,
     website
   };
 
@@ -19,7 +19,7 @@ const createResponseBody = (email, firstName, lastName, github, website) => {
 const server = http.createServer((req, res) => {
   switch (req.url) {
     case '/code/challenge/':
-      const responseBody = createResponseBody('weienwong.93@gmail.com', 'Wei-En', 'Wong', 'https://github.com/weienwong', '');
+      const responseBody = createResponseBody('weienwong.93@gmail.com', 'Wei-En', 'Wong', 'https://github.com/weienwong/zesty-io-challenge', 'https://zestyio-code-challenge.herokuapp.com/');
 
       res.writeHead(201, {
         'Content-Type': 'application/json; charset=utf-8',
