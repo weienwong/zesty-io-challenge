@@ -42,6 +42,8 @@ module.exports = {
   createResponseBody
 }
 
-server.listen(PORT_NUMBER, () => {
-  console.log(`Server listening to port ${PORT_NUMBER}`);
+const port = process.env.PORT || PORT_NUMBER;
+
+server.listen(port, () => {
+  console.log(`Server listening to port ${port}`);
 });
